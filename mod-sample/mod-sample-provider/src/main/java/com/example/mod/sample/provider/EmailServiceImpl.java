@@ -1,6 +1,7 @@
-package com.example.mod.demo.distribute.app1.service;
+package com.example.mod.sample.provider;
 
 import com.example.mod.api.annotation.ModService;
+import com.example.mod.sample.provider.api.EmailService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

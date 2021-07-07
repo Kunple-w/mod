@@ -17,13 +17,14 @@
         <module>mod-sample-provider</module>
         <module>application-distribute</module>
         <module>application-monolith</module>
+        <module>mod-sample-provider-api</module>
     </modules>
-    <dependencies>
-        <dependency>
-            <groupId>org.example</groupId>
-            <artifactId>mod-api</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
+<!--    <dependencies>-->
+<!--        <dependency>-->
+<!--            <groupId>org.example</groupId>-->
+<!--            <artifactId>mod-api</artifactId>-->
+<!--            <version>1.0-SNAPSHOT</version>-->
+<!--        </dependency>-->
+<!--    </dependencies>-->
 
 </project>

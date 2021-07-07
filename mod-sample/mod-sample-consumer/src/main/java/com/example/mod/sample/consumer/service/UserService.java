@@ -1,4 +1,4 @@
-package com.example.mod.demo.provider.service;
+package com.example.mod.sample.consumer.service;
 
 /**
  * @author wangyongxu

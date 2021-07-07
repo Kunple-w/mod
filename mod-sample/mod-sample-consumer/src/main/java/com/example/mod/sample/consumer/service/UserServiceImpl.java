@@ -1,7 +1,7 @@
-package com.example.mod.demo.provider.service;
+package com.example.mod.sample.consumer.service;
 
 import com.example.mod.api.annotation.ModInject;
-import com.example.mod.demo.distribute.app1.service.EmailService;
+import com.example.mod.sample.provider.api.EmailService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

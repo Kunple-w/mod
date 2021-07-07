@@ -1,4 +1,4 @@
-package com.example.mod.demo.distribute.app1.service;
+package com.example.mod.sample.provider.api;
 
 /**
  * @author wangyongxu

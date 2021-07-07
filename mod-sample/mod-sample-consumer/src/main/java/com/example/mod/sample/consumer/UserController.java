@@ -1,6 +1,6 @@
-package com.example.mod.demo.provider;
+package com.example.mod.sample.consumer;
 
-import com.example.mod.demo.provider.service.UserService;
+import com.example.mod.sample.consumer.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
