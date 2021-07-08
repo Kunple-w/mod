@@ -8,6 +8,7 @@
 
 #####
 目录结构:
+```
 mod
 ├── mod-api    mod相关的API
 ├── mod-autoconfiguration    // 基于spring的mod自动配置
@@ -21,9 +22,11 @@ mod
     ├── mod-sample-consumer    // 业务模块 消费者
     ├── mod-sample-provider    // 业务模块 生产者
     └── mod-sample-provider-api    // 业务模块 生产者api 
+```
 
-`mod-api`,`mod-distribute`, `mod-monolith`, `mod-autoconfiguration`是mod相关的实现和配置
-`mod-sample`是使用示例，包括分布式和单体式的示例
+`mod-api`,`mod-distribute`, `mod-monolith`, `mod-autoconfiguration`是mod相关的实现和配置,
+
+`mod-sample`是使用示例，包括分布式和单体式的示例.
 
 #### 安装教程
 
