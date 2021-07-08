@@ -9,21 +9,28 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>mod-sample</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>mod-autoconfiguration</artifactId>
 
-    <modules>
-        <module>mod-sample-provider-api</module>
-        <module>mod-sample-provider</module>
-        <module>mod-sample-consumer</module>
-        <module>application-distribute</module>
-        <module>application-monolith</module>
-    </modules>
+
     <dependencies>
         <dependency>
             <groupId>org.example</groupId>
             <artifactId>mod-api</artifactId>
             <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>mod-distribute</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>mod-monolith</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 

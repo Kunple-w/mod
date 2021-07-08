@@ -1,0 +1,11 @@
+server:
+  port: 28877
+dubbo:
+  registry:
+#    address: zookeeper://localhost:2181
+    address: consul://127.0.0.1:8500
+  application:
+    name: consumer
+spring:
+  application:
+    name: consumer

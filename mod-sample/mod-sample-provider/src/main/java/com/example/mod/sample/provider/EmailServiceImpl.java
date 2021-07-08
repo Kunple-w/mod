@@ -4,6 +4,7 @@ import com.example.mod.api.annotation.ModService;
 import com.example.mod.sample.provider.api.EmailService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
 /**
  * @author wangyongxu

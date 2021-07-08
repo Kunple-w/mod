@@ -1,0 +1,10 @@
+server:
+  port: 18877
+
+
+dubbo:
+  registry:
+#    address: zookeeper://localhost:2181
+    address: consul://localhost:8500
+  application:
+    name: xxxx
