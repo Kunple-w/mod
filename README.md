@@ -32,11 +32,10 @@ mod
 #### 使用说明
 
 1.打包本工程 `mvn install`
-2.引入依赖
 
-2选一:
+2.引入依赖, 2选一:
 ```xml
-<!--分布式2-->
+<!--分布式-->
     <dependency>
         <groupId>org.example</groupId>
         <artifactId>mod-distribute-spring-boot-starter</artifactId>
