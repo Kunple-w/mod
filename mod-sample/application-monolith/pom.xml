@@ -33,12 +33,7 @@
 
         <dependency>
             <groupId>org.example</groupId>
-            <artifactId>mod-monolith</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.example</groupId>
-            <artifactId>mod-autoconfiguration</artifactId>
+            <artifactId>mod-monolith-spring-boot-starter</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 

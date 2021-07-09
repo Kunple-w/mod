@@ -296,6 +296,7 @@ public class DistributeModInjectBeanProcessor extends AbstractAnnotationBeanPost
 //                    .create(attributes, applicationContext)
 //                    .interfaceClass(referencedType);
 //            referenceBean = beanBuilder.build();
+            // TODO: 2021-07-09 11:05:15 实现可调整? by wangyongxu
             referenceBean = new ReferenceBean<>();
             referenceBean.setApplicationContext(applicationContext);
             referenceBean.setInterface(referencedType);

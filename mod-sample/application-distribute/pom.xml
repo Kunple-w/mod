@@ -20,15 +20,10 @@
 
 
     <dependencies>
-        <dependency>
-            <groupId>org.example</groupId>
-            <artifactId>mod-autoconfiguration</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
 
         <dependency>
             <groupId>org.example</groupId>
-            <artifactId>mod-distribute</artifactId>
+            <artifactId>mod-distribute-spring-boot-starter</artifactId>
             <version>1.0-SNAPSHOT</version>
             <exclusions>
                 <exclusion>
@@ -41,6 +36,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
     </dependencies>
 
 </project>

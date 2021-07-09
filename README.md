@@ -16,8 +16,8 @@ mod
 ├── mod-monolith    // 单体式实现
 └── mod-sample    // 使用示例，包括单体式和分布式
     ├── application-distribute    // 分布式示例，包含启动类、生产者service和消费者service
-    │   ├── application-distribute-consumer    // 消费者启动应用service
-    │   └── application-distribute-provider    // 生产者启动应用service
+    │         ├── application-distribute-consumer    // 消费者启动应用service
+    │         └── application-distribute-provider    // 生产者启动应用service
     ├── application-monolith    // 单体式应用
     ├── mod-sample-consumer    // 业务模块 消费者
     ├── mod-sample-provider    // 业务模块 生产者
@@ -28,17 +28,63 @@ mod
 
 `mod-sample`是使用示例，包括分布式和单体式的示例.
 
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
 
 #### 使用说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1.  打包本工程 `mvn install`
+```xml
+
+```
+    
+2.  引入依赖
+```xml
+    <dependency>
+        <groupId>org.example</groupId>
+        <artifactId>mod-monolith-spring-boot-starter</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </dependency>
+```
+3.  使用注解 `@ModService`和 `ModInject`
+
+Demo见`mod-sample包`
+
+#### Demo
+
+##### 生产者
+```java
+@ModService
+public class EmailServiceImpl implements EmailService {
+    private static final Logger logger = LoggerFactory.getLogger(EmailServiceImpl.class);
+
+    @Override
+    public String send(String receiver, String msg) {
+        logger.info("send msg: {} to : {}", msg, receiver);
+        return "send msg: " + msg;
+    }
+}
+
+```
+
+##### 消费者
+
+```java
+@Service
+public class UserServiceImpl implements UserService {
+    private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+
+    @ModInject
+    private EmailService emailService;
+
+    @Override
+    public String sayHi(String to, String msg) {
+        logger.info("say hi: {}, msg: {}", to, msg);
+        emailService.send(to, msg);
+        return "ok";
+    }
+}
+
+```
+
 
 #### 参与贡献
 

@@ -9,15 +9,19 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>mod-api</artifactId>
+    <packaging>pom</packaging>
+    <artifactId>mod-spring-boot-starters</artifactId>
+
+    <modules>
+        <module>mod-distribute-spring-boot-starter</module>
+        <module>mod-monolith-spring-boot-starter</module>
+    </modules>
 
     <dependencies>
-
-        <!--       需最小化依赖-->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>org.example</groupId>
+            <artifactId>mod-autoconfiguration</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
-
 </project>

@@ -27,6 +27,7 @@ public class ScannerConfigurer implements BeanDefinitionRegistryPostProcessor {
         public ModServiceScanner(BeanDefinitionRegistry registry) {
             super(registry, false);
         }
+        // TODO: 2021-07-09 11:06:09 去掉@service注解 by wangyongxu
 
         @Override
         protected Set<BeanDefinitionHolder> doScan(String... basePackages) {
