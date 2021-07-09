@@ -31,26 +31,29 @@ mod
 
 #### 使用说明
 
-1.  打包本工程 `mvn install`
-```xml
+1.打包本工程 `mvn install`
+2.引入依赖
 
-```
-    
-2.  引入依赖
+2选一:
 ```xml
+<!--分布式2-->
+    <dependency>
+        <groupId>org.example</groupId>
+        <artifactId>mod-distribute-spring-boot-starter</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </dependency>
+<!--单体式-->
     <dependency>
         <groupId>org.example</groupId>
         <artifactId>mod-monolith-spring-boot-starter</artifactId>
         <version>1.0-SNAPSHOT</version>
     </dependency>
 ```
-3.  使用注解 `@ModService`和 `ModInject`
 
-Demo见`mod-sample包`
+3.使用注解 `@ModService`和 `@ModInject`
 
-#### Demo
-
-##### 生产者
+##### 注解使用示例
+**生产者**
 ```java
 @ModService
 public class EmailServiceImpl implements EmailService {
@@ -65,8 +68,7 @@ public class EmailServiceImpl implements EmailService {
 
 ```
 
-##### 消费者
-
+**消费者**
 ```java
 @Service
 public class UserServiceImpl implements UserService {
@@ -82,8 +84,53 @@ public class UserServiceImpl implements UserService {
         return "ok";
     }
 }
-
 ```
+
+Demo见`mod-sample包`
+
+#### Demo
+
+mod-sample中 `mod-sample-consumer`是业务功能的消费者，`mod-sample-provider`是业务功能提供者, `application-*`是2个进程启动包，分别是单体式和分布式。
+
+在`application-monolith`中，引入了`mod-sample-consumer`和`mod-sample-provider`，配合`mod-monolith-spring-boot-starter`。
+
+在`application-distribute`中，`application-distribute-consumer`引入了`mod-sample-consumer`; `application-distribute-provider`引入了`mod-sample-provider`，配合`mod-distribute-spring-boot-starter`。
+
+##### 运行
+1. 验证单体式
+运行`application-monolith`的`MonolithApp`,启动完成后运行,返回ok:
+
+```shell script
+curl --request GET -sL \
+     --url 'http://localhost:8082/user/sayHi'
+```
+
+可以在控制台看到
+```
+2021-07-09 14:11:21.042  INFO 8140 --- [nio-8082-exec-2] c.e.m.s.c.service.UserServiceImpl        : say hi: jack, msg: hello
+2021-07-09 14:11:21.044  INFO 8140 --- [nio-8082-exec-2] c.e.m.sample.provider.EmailServiceImpl   : send msg: hello to : jack
+```
+2. 验证分布式
+
+a. 启动consul(默认使用了consul,可使用[consul-docker-compose](./consul-docker-compose.yml))
+
+b. 运行生产者服务`application-distribute-provider`的`DistributeProviderApp`和消费者服务`application-distribute-consumer`的`DistributeConsumerApp`
+
+
+启动完成后运行, 返回ok
+```shell script
+curl --request GET -sL \
+     --url 'http://localhost:28877/user/sayHi'
+```
+可以在消费者服务中看到日志:
+```
+2021-07-09 13:44:23.065  INFO 2036 --- [io-28877-exec-8] c.e.m.s.c.service.UserServiceImpl        : say hi: jack, msg: hello
+```
+在提供者服务中看到日志
+```
+2021-07-09 13:44:23.067  INFO 25788 --- [:20880-thread-3] c.e.m.sample.provider.EmailServiceImpl   : send msg: hello to : jack
+```
+
 
 
 #### 参与贡献
@@ -92,13 +139,3 @@ public class UserServiceImpl implements UserService {
 2.  新建 Feat_xxx 分支
 3.  提交代码
 4.  新建 Pull Request
-
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
